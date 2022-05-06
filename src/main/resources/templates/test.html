@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>스프링 부트</title>
+</head>
+<body>
+	<h1>도커 아웃오브 도커 젠킨스 배포방식 </h1>
+	<h3>Update #5</h3> 
+	<h1>소스 푸쉬 후 배포 확인#7</h1>
+	<h1>ssh plugin 방식 배포</h1>
+	<h3>test thymeleaf....</h3>
+	<p>
+		id : <span th:text="${title.id}"></span>
+	</p>
+	<p>
+		name : <span th:text="${title.name}"></span>
+	</p>
+	<p>
+		secret : <span th:text="${title.secret}"></span>
+	</p>
+	<h5>title 2 객체</h5>
+	<p>
+		id : <span th:text="${title2.id}"></span>
+	</p>
+	<p>
+		name : <span th:text="${title2.name}"></span>
+	</p>
+	<p>
+		secret : <span th:text="${title2.secret}"></span>
+	</p>
+	<hr>
+	<h3>문법</h3>
+	1.
+	<p th:text="${hello != null}">Message</p>
+	2.
+	<p th:utext=${hello}>Message</p>
+	<div>
+		<p>버튼</p>
+		3.
+		<button name="animal" th:value=${btn}>버튼</button>
+	</div>
+	4.with 변수값을 지정
+	<div th:with="temp=${btn}" th:text="${temp}"></div>
+	<hr>
+	5. switch
+	<div th:switch="${btn}">
+		<p th:case="cat">This is cat</p>
+		<p th:case="home">This is home</p>
+		<p th:case="*">This is default</p>
+	</div>
+	6. if unless(= else if) 예제
+	<p th:if="${btn}=='cat'" th:text="${btn}"></p>
+	<p th:unless="${btn}=='cat'" th:text="언레스임."></p>
+	7. each 예
+	<div>
+		<ul th:each="salary : ${salaryList}">
+			<li th:text="${salary.id}">></li>
+			<li th:text="|너의 이름은... ${salary.name}|"></li>
+			<li th:text="${salary.email}"></li>
+		</ul>
+	</div>
+
+	<th:block th:each="salary,status : ${salaryList}">
+		<h3 th:text="${salary.id}">></h3>
+		<div>
+			<span th:text="|1 인덱스 : ${status.index} |"></span> <span
+				th:text="|, 2 카운트 : ${status.count} |"></span> <span
+				th:text="|, 3 총개수 : ${status.size} |"></span> <span
+				th:text="|, 4 현재 index변수 : ${status.current} |"></span> <span
+				th:text="|, 5 짝수 : ${status.even} |"></span> <span
+				th:text="|, 6 홀수 : ${status.odd} |"></span> <span
+				th:text="|, 7 처음변수 true/false : ${status.first} |"></span> <span
+				th:text="|, 8 마지막변수 true/false : ${status.last} |"></span>
+		</div>
+		<li th:text="|너의 이름은... ${salary.name}|"></li>
+		<li th:text="${salary.email}"></li>
+	</th:block>
+</body>
+</html>
