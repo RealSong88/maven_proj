@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+       - chmod +x ./mvnw
+       - mvnw package
+  post_build:
+    commands:
+      - echo $(basename ./target/*.war)
+      - pwd
+
