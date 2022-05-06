@@ -13,6 +13,8 @@ artifacts:
   files:
     - target/*.war
   discard-paths: yes
- 
 
+cache:
+  paths:
+    - '/root/.m2/**/*'
 
