@@ -7,7 +7,6 @@ phases:
        - mvn package
   post_build:
     commands:
-      - echo $(basename ./target/*.war)
       - pwd
 artifacts:
   files:
