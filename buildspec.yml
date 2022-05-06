@@ -3,8 +3,8 @@ version: 0.2
 phases:
   build:
     commands:
-       - chmod +x ./mvnw
-       - mvnw package
+       #- chmod +x ./mvnw
+       - mvn package
   post_build:
     commands:
       - echo $(basename ./target/*.war)
