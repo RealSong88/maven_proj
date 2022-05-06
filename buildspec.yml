@@ -9,9 +9,10 @@ phases:
     commands:
       - echo $(basename ./target/*.war)
       - pwd
-  artifacts:
-    files:
-      - target/*.war
+artifacts:
+  files:
+    - target/*.war
+  discard-paths: yes
  
 
 
