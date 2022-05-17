@@ -1,20 +1,22 @@
 version: 0.2
 
 phases:
+  pre_build:
+    commands:
+      - mvn clean
   build:
     commands:
-       #- chmod +x ./mvnw
-       - mvn package
+      - echo Build started on `date`
+      - mvn package
   post_build:
     commands:
-      - pwd
+      - echo Build completed on `date`
 artifacts:
   files:
-    - appspec.yml
     - target/*.war
-  discard-paths: yes
-
+    - appspec.yml
+    - Dockerfile
+    - scripts/*
 cache:
   paths:
     - '/root/.m2/**/*'
-

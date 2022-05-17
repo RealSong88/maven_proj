@@ -1,11 +1,22 @@
 version: 0.0
 os: linux
 files:
-  - source:  /
-    destination: /home/ec2-user/build/
+  - source: target/demo3-0.0.1-SNAPSHOT.war
+    destination: /home/ec2-user/maven_proj/target
+  - source: ./Dockerfile
+    destination: /home/ec2-user/maven_proj/
 
 permissions:
-  - object: /
-    pattern: "**"
-    owner: ec2-user
+  - object: /home/ec2-user/maven_proj
+    patterns: demo3-0.0.1-SNAPSHOT.war
+    owner: root
     group: ec2-user
+    type:
+      - file
+hooks:
+  BeforeInstall:
+    - location: scripts/clean_service.sh
+      runas: root
+  ApplicationStart:
+    - location: scripts/start_service.sh
+      runas: root
