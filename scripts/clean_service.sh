@@ -10,6 +10,6 @@ conFlag=`docker images was -q`
 
 if [ "$conFlag" ]; then
     echo "docker image delete...."
-    docker rm -f was-app
-    docker rmi was
+    docker rm -f maven_was-app
+    docker rmi maven_p_was
 fi
