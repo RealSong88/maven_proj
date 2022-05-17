@@ -6,7 +6,7 @@ if [ -d "${FILE}/target" ]; then
 	rm -rf "${FILE}/Dockerfile"
 fi
 
-conFlag=`docker images was -q`
+conFlag=`docker images maven_p_was -q`
 
 if [ "$conFlag" ]; then
     echo "docker image delete...."

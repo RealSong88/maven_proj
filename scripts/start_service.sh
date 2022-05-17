@@ -1,7 +1,4 @@
 #!/bin/bash
-echo `pwd` > /home/ec2-user/new.log
-whoami
-it
 
 cd /home/ec2-user
 docker build -t maven_p_was .
