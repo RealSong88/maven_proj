@@ -13,7 +13,14 @@ import com.example.demo.vo.TestVo;
 
 @Controller
 public class TestController {
-
+	
+	
+	@ResponseBody
+	@GetMapping("/")
+	public ResponseEntity<HttpStatus> healthCheck(){
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String goTest(Model model) {
 		
