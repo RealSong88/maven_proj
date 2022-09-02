@@ -25,6 +25,12 @@ public class TestController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	@ResponseBody
+	@GetMapping("/hello")
+	public String hello() {
+		return "hello 01";
+	}
+	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String goTest(Model model) {
 		
